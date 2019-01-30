@@ -5,7 +5,7 @@ require("ts-node").register({
   }
 });
 
-module.exports = function(config: any) {
+module.exports = (config: any) => {
   config.set({
     basePath: "",
     frameworks: ["jasmine"],
