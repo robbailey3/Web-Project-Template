@@ -1,15 +1,11 @@
 {
-  "name": "typescript-webpack-testing",
-  "version": "1.0.0",
+  "author": "",
+  "dependencies": {},
   "description": "",
-  "main": "dist/index.js",
-  "dependencies": {
+  "devDependencies": {
     "@types/jasmine": "^3.3.5",
     "@types/node": "^10.12.18",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
-  },
-  "devDependencies": {
+    "autoprefixer": "^9.6.0",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
@@ -20,6 +16,9 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.5",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-sorting": "^5.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "ts-lint": "^4.5.1",
@@ -29,13 +28,18 @@
     "typescript": "^3.2.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.1",
-    "webpack-clean-plugin": "^0.2.3"
+    "webpack-clean-plugin": "^0.2.3",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   },
+  "license": "ISC",
+  "main": "dist/index.js",
+  "name": "typescript-webpack-testing",
   "scripts": {
-    "test": "karma start",
-    "build": "webpack -w",
-    "serve": "webpack-dev-server"
+    "build": "webpack -w --config webpack.prod.js",
+    "serve": "webpack-dev-server",
+    "test": "karma start"
   },
-  "author": "",
-  "license": "ISC"
+  "version": "1.0.0"
 }

@@ -16,7 +16,7 @@ module.exports = (config: any) => {
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    webpack: require("./webpack.config.test"),
+    webpack: require("./webpack.test"),
     plugins: [
       "karma-webpack",
       "karma-jasmine",
