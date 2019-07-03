@@ -1,13 +1,12 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackCleanPlugin = require('webpack-clean-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
-  mode: 'production',
   module: {
     rules: [
       {
@@ -43,10 +42,7 @@ module.exports = {
       chunksSortMode: 'auto',
       chunks: ['main']
     }),
-    new WebpackCleanPlugin({
-      on: 'emit',
-      path: ['./dist']
-    }),
+    new CleanWebpackPlugin(),
     new CopyPlugin([
       {
         from: 'src/assets',
