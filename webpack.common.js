@@ -3,7 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
@@ -16,7 +16,12 @@ module.exports = {
       },
       {
         test: /\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ],
         exclude: /node_modules/
       },
       {
@@ -29,11 +34,25 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js']
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
-    minimizer: [new UglifyJsPlugin()]
+    minimizer: [new UglifyJsPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        }
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -48,6 +67,9 @@ module.exports = {
         from: 'src/assets',
         to: 'assets'
       }
-    ])
+    ]),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css'
+    })
   ]
 };
