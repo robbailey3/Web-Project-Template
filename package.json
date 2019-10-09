@@ -1,6 +1,11 @@
 {
   "author": "",
-  "dependencies": {},
+  "dependencies": {
+    "@bbob/core": "^2.5.4",
+    "@bbob/html": "^2.5.4",
+    "@bbob/preset-html5": "^2.5.4",
+    "normalize.css": "^8.0.1"
+  },
   "description": "",
   "devDependencies": {
     "@types/jasmine": "^3.3.5",

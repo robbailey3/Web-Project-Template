@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Oleeo Email Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TypeScript-Webpack-Jasmine</title>
-</head>
-
-<body>
-
-</body>
-
+  <body>
+    <header></header>
+    <main>
+      <div class="content-width flex-container">
+        <div class="form-group col-md-6">
+          <label for="template-header">Template Header</label
+          ><textarea
+            class="form-control"
+            name="template-header"
+            id="template-header"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="template-body">Template Body</label
+          ><textarea
+            class="form-control"
+            name="template-body"
+            id="template-body"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="template-footer">Template Footer</label
+          ><textarea
+            class="form-control"
+            name="template-footer"
+            id="template-footer"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </div>
+        <div id="result-container" class="col-md-6">
+          <h2>Result</h2>
+          <div id="result"></div>
+          <div id="copy-button-container">
+            <button id="copy" class="btn btn-primary">Copy to Clipboard</button>
+          </div>
+        </div>
+        <div class="form-group" id="lock">
+          <label for="lock-branding">Lock Header and Footer parts</label>
+          <input type="checkbox" name="lock-branding" id="lock-branding" />
+        </div>
+        <div id="save">
+          <button id="save-button" class="btn btn-primary">
+            Save for later
+          </button>
+        </div>
+      </div>
+      <div id="preview"></div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
