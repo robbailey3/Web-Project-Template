@@ -1,8 +1,0 @@
-{
-  "extends": ["tslint-config-airbnb", "tslint:latest"],
-  "rules": {
-    "quotemark": [true, "single"],
-    "trailing-comma": false,
-    "member-ordering": [true, { "order": "fields-first" }]
-  }
-}
